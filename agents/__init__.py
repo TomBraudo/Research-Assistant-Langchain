@@ -1,3 +1,5 @@
 # Agents module
-# TODO: Add agent implementations here
+from agents.research_agent import research_agent
+
+__all__ = ["research_agent"]
 
