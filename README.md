@@ -466,6 +466,3 @@ Contributions are welcome! Please:
 - **FastAPI** - Web framework
 
 ---
-
-Made with ❤️ by [Your Name]
-
