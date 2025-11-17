@@ -1,5 +1,2 @@
 # Agents module
-from agents.research_agent import research_agent
-
-__all__ = ["research_agent"]
-
+# Empty - ready for new implementation
