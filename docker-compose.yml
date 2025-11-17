@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  research-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: research-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - SERPAPI_API_KEY=${SERPAPI_API_KEY}
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
+      - HUGGINGFACE_API_BASE=${HUGGINGFACE_API_BASE:-https://router.huggingface.co/v1}
+      - LLAMA_MODEL_NAME=${LLAMA_MODEL_NAME:-meta-llama/Llama-3.3-70B-Instruct}
+      - DEFAULT_TEMPERATURE=${DEFAULT_TEMPERATURE:-0.7}
+      - DEFAULT_MAX_TOKENS=${DEFAULT_MAX_TOKENS:-2048}
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+

@@ -1,0 +1,17 @@
+# Search API - modern package
+serpapi
+
+# Environment variables
+python-dotenv
+
+# LangChain packages - core framework
+langchain
+langchain-core
+langchain-openai
+langchain-community
+
+# FastAPI and server
+fastapi
+uvicorn[standard]
+pydantic
+requests
