@@ -7,7 +7,7 @@ logger = get_logger("main")
 def main():
     """
     Main entry point for the Research Assistant.
-    Takes user input and runs the research agent to provide summarized results.
+    Takes user input and runs the research agent to provide JSON-formatted summarized results.
     """
     logger.info("Research Assistant started")
     print("🔍 Research Assistant")
@@ -33,7 +33,7 @@ def main():
                 continue
             
             print(f"\n🔎 Researching: {query}")
-            print("⏳ Searching and summarizing...")
+            print("⏳ Searching and summarizing to JSON format...")
             print("-" * 50)
             
             logger.info(f"User query received: '{query}'")
@@ -42,7 +42,7 @@ def main():
             result = research_with_summary(query)
             
             # Print the results
-            print("📝 Research Summary:")
+            print("📝 Research Summary (JSON):")
             print(result)
             print("-" * 50)
             print()
